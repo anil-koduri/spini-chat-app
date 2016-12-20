@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row" id="chat_window_1" style="margin-left:10px;">
+        <div class="col-xs-12 col-md-12 spini-panel-bottom">
+        	<div class="panel panel-default">
+                <div class="panel-body msg_container_base" infinite-scroll="getConversations()" infinite-scroll-disabled="isLoading">
+                	<div  ng-repeat="conversation in conversations|orderBy:'updatedAt'">
+                	<label ng-if="showChangeDates(conversation.updatedAt)" class="msg_label_base">
+                		{{conversation.updatedAt|spiniChatDate}}
+                	</label>
+                    <div class="row msg_container " ng-class="{'base_sent':conversation.fromUserId == sentData.fromUserId, 'base_receive':conversation.fromUserId == sentData.toUserId}">
+                        <div class="col-md-10 col-xs-10">
+                            <div class="messages " ng-class="{'base_sent':conversation.fromUserId == sentData.fromUserId, 'base_receive':conversation.fromUserId == sentData.toUserId}">
+                                <p>{{conversation.message}}</p>
+                                <time>{{conversation.updatedAt|date:'mediumTime'}}</time>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="no-message" ng-if="isLoading">
+                    	<label>Loading...</label>
+                    </div>
+                    <div class="no-message" ng-if="!isLoading && conversations.length==0">
+                    	<label>No Message found</label>
+                    </div>
+                </div>
+                <div class="panel-footer spini-panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" ng-model="message" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+                        <span class="input-group-btn">
+                        <button class="btn btn-primary btn-sm" id="btn-chat" ng-click="sendMessage(message)">Send</button>
+                        </span>
+                    </div>
+                </div>
+    		</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <pre>{{conversations|json}}</pre> -->

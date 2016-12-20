@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Spini Chat Application</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/angular-growl.css" rel="stylesheet">
+    <!-- App CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    
+</head>
+<body id="page-top" class="index" ng-app="sChatApp">
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default" ng-controller="homeController">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
+                <a class="navbar-brand page-scroll" ui-sref="home()">Spini Chat Application</a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center" ng-if="checkLoginStatus()">
+                <!-- <div class="glyphicon glyphicon-plus-sign" style="font-size: xx-large;"></div> -->
+                <a class="" ui-sref="users()"><span style="font-size: xx-large;top: 12px;" class="glyphicon glyphicon-plus-sign"></span></a>
+                <button class="btn btn-primary" ng-click="logout()">Logout</button>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div growl></div>
+    <div ui-view></div>
+    <script src="resources/jquery/jquery-3.1.1.min.js"></script>
+    <script src="resources/angular/angular.js"></script>
+    <script src="resources/angular/angular-ui-router.js"></script>
+    <script src="resources/angular/angular-cookies.js"></script>
+    <script src="resources/angular/angular-growl.js"></script>
+    <script src="resources/angular/ng-infinite-scroll.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services.js"></script>
+    <script src="app/controllers.js"></script>
+    <script src="app/filters.js"></script>
+    </body>
+</html>

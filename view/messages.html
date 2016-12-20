@@ -1,0 +1,12 @@
+<div class="container">
+	<h3 class="no-margin " style="margin-bottom: 20px;">Conversations</h3>
+	<div class="list-group" ng-if="chatHistory.length">
+		<a class="list-group-item list-group-item-action" style="margin-bottom: 5px;" ng-repeat="item in chatHistory" ui-sref="conversations({'user':item})">
+		    <h5 class="list-group-item-heading">{{item}}</h5>
+		    <p class="list-group-item-text"></p>
+		 </a>
+	</div>
+	<div class="list-group" ng-if="chatHistory.length==0">
+		<p>Please click on "+" to start chating with users</p>
+	</div>
+</div>

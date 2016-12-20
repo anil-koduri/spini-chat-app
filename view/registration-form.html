@@ -1,0 +1,42 @@
+<header class="container">
+    <h1 class="text-center">{{heading}}</h1>
+</header>
+<section class="container register-container">
+    <form name="register" class="" ng-submit="register.$valid && submit()" novalidate>
+      <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon glyphicon glyphicon-check input-glyphicon"></span>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              placeholder="Username"
+              ng-model="user.userId"
+              ng-required="true"
+              ng-pattern="/^[a-z0-9]+$/i">
+
+        </div>
+        <label for="username" class="control-label text-error" ng-if="register.$submitted && register.username.$error.required">Requried</label>
+        <label for="username" class="control-label text-error" ng-if="register.$submitted && register.username.$error.pattern">Allow alphanumeric characters only</label>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon glyphicon glyphicon-check input-glyphicon"></span>
+            <input 
+            type="password"
+            class="form-control"
+            id="pwd"
+            name="pwd" 
+            placeholder="Password"
+            ng-required="true"
+            ng-model="user.password">
+        </div>
+        <label for="pwd" class="control-label text-error" ng-if="register.$submitted && register.pwd.$error.required">Requried</label>
+      </div>
+      <div class="col-md-12 text-center">
+      <button type="submit" class="btn btn-info btn-lg">Register</button>
+      </div>
+      <!-- <pre>{{register}}</pre> -->
+    </form>
+</section>
